@@ -5,10 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    profile_id: DataTypes.INTEGER;
+    profile_id: DataTypes.INTEGER
   }, {});
   User.associate = function(models) {
-    // associations can be defined here
+    User.belongsTo(models.Profile, { foreignKey: 'id', as: 'profiles' })
   };
   return User;
 };
