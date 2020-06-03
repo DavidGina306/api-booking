@@ -24,6 +24,11 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull: false
             },
+            status: {
+                type: Sequelize.BOOLEAN,
+                defaultValue: true,
+                allowNull: false
+            },
             profile_id: {
                 type: Sequelize.INTEGER,
                 references: {
