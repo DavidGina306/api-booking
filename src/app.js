@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+var users = require('./routes/user.routes');
+app.use('/users', users);
+
 app.get('/', (req, res) => {
     res.send('Sistema de Reservas')
 })

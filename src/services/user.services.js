@@ -1,12 +1,12 @@
-var User = require('../models/user.model')
+var User = require('../models/user')
 
 exports.getUsers = async function(query, page, limit) {
 
     try {
-        var users = await User.find(query)
+        var users = await User.findAll(query)
         return users;
     } catch (e) {
-        // Log Errors
+        console.log(e);
         throw Error('Error while Paginating Users')
     }
 }
