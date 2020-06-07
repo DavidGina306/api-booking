@@ -1,7 +1,6 @@
 const models = require('../models/index');
 
 exports.getUsers = async function(query, page, limit) {
-
     try {
         var users = await models.User.findAll()
         return users;
@@ -31,6 +30,7 @@ exports.updateUsers = async function(req) {
     try {
         const { userId } = req.params;
         const [updated] = await models.User.update(req.body, {
+            individualHooks: true,
             where: { id: userId }
         });
         if (updated) {

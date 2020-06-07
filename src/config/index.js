@@ -4,4 +4,5 @@ module.exports = {
     endpoint: process.env.DB_HOST,
     masterKey: process.env.API_KEY,
     port: process.env.PORT,
+    'secret': 'grokonez-super-secret-key'
 };

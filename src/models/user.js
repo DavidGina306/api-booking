@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
     User.beforeCreate((user, options) => { return bcrypt.hash(user.password, 10).then(hash => { user.password = hash; }).catch(err => { throw new Error(); }); });
+    User.beforeUpdate((user, options) => { return bcrypt.hash(user.password, 10).then(hash => { user.password = hash; }).catch(err => { throw new Error(); }); });
     User.associate = function(models) {
         User.belongsTo(models.Profile, { foreignKey: 'id', as: 'profiles' })
     };
