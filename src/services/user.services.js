@@ -1,8 +1,9 @@
-const models = require('../models/index');
+var User = require('../models/user')
 
 exports.getUsers = async function(query, page, limit) {
+
     try {
-        var users = await models.User.findAll()
+        var users = await User.findAll(query)
         return users;
     } catch (e) {
         console.log(e);
